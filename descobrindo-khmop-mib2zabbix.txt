@@ -1,0 +1,6 @@
+yum install "perl(SNMP)" "perl(XML::Simple)"
+curl -sL -o ~/bin/mib2zabbix https://raw.githubusercontent.com/cavaliercoder/mib2zabbix/master/mib2zabbix.pl
+chmod +x ~/bin/mib2zabbix
+export MIBS=+KHOMP-MIB
+cp /etc/khomp/KHOMP-MIB /usr/share/snmp/mibs/
+snmptranslate -Tz -M +KHOMP-MIB -m /etc/khomp/KHOMP-MIB | ./mib2zabbix.pl -o 1.3.6.1.4.1.32624 -f template-khomp-from-mib.xml -N KHOMP-MIB

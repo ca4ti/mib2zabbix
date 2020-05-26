@@ -1,4 +1,12 @@
 yum install "perl(SNMP)" "perl(XML::Simple)"
+If it is CentOS 7, it is in the package called perl-TimeDate.
+Similarly, if it is CentOS 7, you can run mib2template.pl by installing some packages as follows.
+
+# yum install net-snmp-perl
+# yum install perl-XML-LibXML
+# yum install epel-release
+# yum install perl-Log-Log4perl
+# yum install perl-Capture-Tiny
 curl -sL -o ~/bin/mib2zabbix https://raw.githubusercontent.com/cavaliercoder/mib2zabbix/master/mib2zabbix.pl
 chmod +x ~/bin/mib2zabbix
 export MIBS=+KHOMP-MIB
